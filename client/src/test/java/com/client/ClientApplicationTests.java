@@ -1,13 +1,13 @@
-package com.demo.springcloudclient;
+package com.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringCloudClientApplicationTests {
+class ClientApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
