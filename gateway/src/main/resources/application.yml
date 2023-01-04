@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: hello123
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
+#        - id: consumer
+#          uri: http://localhost:8080
+#          predicates:
+#            - Path=/user/hello
+        - id: product
+          uri: lb://nacos-server-consumer
+          predicates:
+            - Path=/user/**
+
+  application:
+    name: gateway
+server:
+  port: 8889
+

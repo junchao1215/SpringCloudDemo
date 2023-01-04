@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: client
+  cloud:
+    nacos:
+      config:
+        namespace: 3046e9e7-aa27-4942-8919-b15d17a27069
+        group: client
+        prefix: client
+        file-extension: yaml
+        encode: UTF-8
+        timeout: 3000
+        server-addr: 127.0.0.1:8848
