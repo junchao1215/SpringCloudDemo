@@ -1,6 +1,7 @@
 package com.client.service.impl;
 
 import com.client.auth.*;
+import com.client.common.Result;
 import com.client.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +22,7 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private RedisCache redisCache;
     @Override
-    public ResponseResult login(User user) {
+    public Result login(User user) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUserName(),user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if(Objects.isNull(authenticate)){
@@ -36,17 +37,17 @@ public class LoginServiceImpl implements LoginService {
         //把token响应给前端
         HashMap<String,String> map = new HashMap<>();
         map.put("token",jwt);
-        return new ResponseResult(200,"登陆成功",map);
+        return Result.ok(map);
 
 
     }
     @Override
-    public ResponseResult logout() {
+    public Result logout() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         Long userid = loginUser.getUser().getId();
         redisCache.deleteObject("login:"+userid);
-        return new ResponseResult(200,"退出成功");
+        return Result.ok();
     }
 
 }

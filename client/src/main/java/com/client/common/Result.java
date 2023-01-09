@@ -1,9 +1,11 @@
-package com.client.auth;
+package com.client.common;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Result<T> {
+public class Result<T> implements Serializable {
     private Boolean success;//是否成功
     private Integer code;//状态码
     private String message;//返回消息
@@ -21,7 +23,7 @@ public class Result<T> {
     public static<T> Result<T> ok(){
         Result<T> result = new Result<T>();
         result.success(true);
-        result.code(ResultCode.SUCCESS);
+        result.code(ResultCode.SUCCESS.getCode());
         result.message("执行成功");
         return result;
     }
@@ -35,7 +37,7 @@ public class Result<T> {
     public static<T> Result<T> ok(T data){
         Result<T> result = new Result<T>();
         result.success(true);
-        result.code(ResultCode.SUCCESS);
+        result.code(ResultCode.SUCCESS.getCode());
         result.message("执行成功");
 //        result.setData(data);
         return result;
@@ -48,8 +50,19 @@ public class Result<T> {
     public static<T> Result<T> error(){
         Result<T> result = new Result<T>();
         result.success(false);
-        result.code(ResultCode.ERROR);
+        result.code(ResultCode.COMMON_FAIL.getCode());
         result.message("执行失败");
+        return result;
+    }
+    /**
+     * 自定义失败
+     * @return
+     */
+    public static<T> Result<T> fail(ResultCode resultCode){
+        Result<T> result = new Result<T>();
+        result.success(false);
+        result.code(resultCode.getCode());
+        result.message(resultCode.getMessage());
         return result;
     }
     /**
@@ -89,7 +102,7 @@ public class Result<T> {
     public static<T> Result<T> exist(){
         Result<T> result = new Result<T>();
         result.success(true);
-        result.code(ResultCode.SUCCESS);
+        result.code(ResultCode.SUCCESS.getCode());
         result.message("执行成功");
         return result;
     }

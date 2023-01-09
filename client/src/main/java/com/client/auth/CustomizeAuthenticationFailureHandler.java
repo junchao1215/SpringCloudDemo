@@ -1,9 +1,8 @@
 package com.client.auth;
 
 import com.alibaba.fastjson.JSON;
-import com.client.common.JsonResult;
+import com.client.common.Result;
 import com.client.common.ResultCode;
-import com.client.common.ResultTool;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -18,28 +17,28 @@ public class CustomizeAuthenticationFailureHandler implements AuthenticationFail
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         //返回json数据
-        JsonResult result = null;
+        Result result = null;
         if (e instanceof AccountExpiredException) {
             //账号过期
-            result = ResultTool.fail(ResultCode.USER_ACCOUNT_EXPIRED);
+            result = Result.fail(ResultCode.USER_ACCOUNT_EXPIRED);
         } else if (e instanceof BadCredentialsException) {
             //密码错误
-            result = ResultTool.fail(ResultCode.USER_CREDENTIALS_ERROR);
+            result = Result.fail(ResultCode.USER_CREDENTIALS_ERROR);
         } else if (e instanceof CredentialsExpiredException) {
             //密码过期
-            result = ResultTool.fail(ResultCode.USER_CREDENTIALS_EXPIRED);
+            result = Result.fail(ResultCode.USER_CREDENTIALS_EXPIRED);
         } else if (e instanceof DisabledException) {
             //账号不可用
-            result = ResultTool.fail(ResultCode.USER_ACCOUNT_DISABLE);
+            result = Result.fail(ResultCode.USER_ACCOUNT_DISABLE);
         } else if (e instanceof LockedException) {
             //账号锁定
-            result = ResultTool.fail(ResultCode.USER_ACCOUNT_LOCKED);
+            result = Result.fail(ResultCode.USER_ACCOUNT_LOCKED);
         } else if (e instanceof InternalAuthenticationServiceException) {
             //用户不存在
-            result = ResultTool.fail(ResultCode.USER_ACCOUNT_NOT_EXIST);
+            result = Result.fail(ResultCode.USER_ACCOUNT_NOT_EXIST);
         }else{
             //其他错误
-            result = ResultTool.fail(ResultCode.COMMON_FAIL);
+            result = Result.fail(ResultCode.COMMON_FAIL);
         }
         //处理编码方式，防止中文乱码的情况
         httpServletResponse.setContentType("text/json;charset=utf-8");

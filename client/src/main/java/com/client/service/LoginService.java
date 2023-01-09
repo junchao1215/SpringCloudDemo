@@ -1,9 +1,9 @@
 package com.client.service;
 
-import com.client.auth.ResponseResult;
 import com.client.auth.User;
+import com.client.common.Result;
 
 public interface LoginService {
-    ResponseResult login(User user);
-    ResponseResult logout();
+    Result login(User user);
+    Result logout();
 }

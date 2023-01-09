@@ -1,7 +1,7 @@
 package com.client.controller;
 
-import com.client.auth.ResponseResult;
 import com.client.auth.User;
+import com.client.common.Result;
 import com.client.feign.FeignClientService;
 import com.client.log.OperatorLog;
 import com.client.service.LoginService;
@@ -19,7 +19,7 @@ public class UserController {
     private LoginService loginService;
     @PostMapping("/login")
     @OperatorLog(operate="用户登陆", module="用户管理")
-    public ResponseResult login(@RequestBody User user){
+    public Result login(@RequestBody User user){
         return loginService.login(user);
     }
 

@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringCloudDemo" />
-        <module name="client" />
         <module name="gateway" />
+        <module name="SpringCloudDemo" />
         <module name="service" />
+        <module name="oauth2" />
         <module name="config" />
+        <module name="client" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +20,7 @@
       <module name="client" options="" />
       <module name="config" options="" />
       <module name="gateway" options="" />
+      <module name="oauth2" options="-parameters" />
       <module name="service" options="" />
     </option>
   </component>
