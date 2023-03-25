@@ -1,12 +1,17 @@
+server:
+  port: 8081
 spring:
   profiles:
     active: dev
   application:
-    name: nacos-server-consumer
+    name: nacos-client
   cloud:
     nacos:
       discovery:
         server-addr: http://127.0.0.1:8848
+#    alibaba:
+#      seata:
+#        tx-service-group: nacos-server-consumer-seata-service-group
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,8 +23,45 @@ spring:
     port: 6379
     connect-timeout: 5000
     password:
-feign:
-  circuitbreaker:
-    enabled: true
+#feign:
+#  sentinel:
+#    enabled: true
+#  circuitbreaker:
+#    enabled: true
+
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
+#seata:
+#  enabled: true
+#  enable-auto-data-source-proxy: false
+#  application-id: ${spring.application.name}
+#  data-source-proxy-mode: AT
+#  tx-service-group: nacos-server-consumer-seata-service-group
+#  service:
+#    vgroup-mapping:
+#      nacos-server-consumer-seata-service-group: default
+#    grouplist:
+#      default: 127.0.0.1:8091
+#    enable-degrade: false
+#    disable-global-transaction: false
+#  registry:
+#    type: nacos
+#    nacos:
+#      application: seata-server
+#      server-addr: 127.0.0.1:8848 # nacos地址
+#      namespace: "085fcaf1-5a31-4746-a2f0-f1fce0610e5d" # seata服务所在的名称空间
+#      group: SEATA_GROUP
+#      cluster: default
+#  config:
+#    type: nacos
+#    nacos:
+#      server-addr: 127.0.0.1:8848 # nacos地址
+#      namespace: "a3f29d1e-33ed-46ac-a13c-daa12280eb83" # seata服务所在的名称空间
+#      group: SEATA_GROUP
+#      cluster: default
+
+#  logging:
+#    root: info
+
+
+

@@ -1,6 +1,7 @@
 package com.client.auth;
 
 import com.alibaba.fastjson.annotation.JSONField;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class LoginUser implements UserDetails {
     private List<String> permissions;
 
     private User user;
-
+    private String token;
     //存储SpringSecurity所需要的权限信息的集合
     @JSONField(serialize = false)
     private List<GrantedAuthority> authorities;

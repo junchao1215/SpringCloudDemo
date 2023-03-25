@@ -1,6 +1,7 @@
 package com.client.log;
 
-import com.client.common.Result;
+
+import common.Result;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;

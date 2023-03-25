@@ -1,4 +1,4 @@
-package com.client.common;
+package common;
 
 import org.springframework.http.HttpStatus;
 

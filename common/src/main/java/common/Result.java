@@ -1,4 +1,4 @@
-package com.client.common;
+package common;
 
 import lombok.Data;
 
@@ -11,6 +11,19 @@ public class Result<T> implements Serializable {
     private String message;//返回消息
     private T data;//返回数据
 
+    public Result(Boolean success, Integer code, String message) {
+        this.success = success;
+        this.code = code;
+        this.message = message;
+    }
+
+    public Result(Boolean success, Integer code, String message, T data) {
+        this.success = success;
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
     /**
      * 私有化构造方法，禁止在其它类创建对象
      */
@@ -21,12 +34,14 @@ public class Result<T> implements Serializable {
      * @return
      */
     public static<T> Result<T> ok(){
-        Result<T> result = new Result<T>();
-        result.success(true);
-        result.code(ResultCode.SUCCESS.getCode());
-        result.message("执行成功");
+        Result<T> result = new Result<T>(true,ResultCode.SUCCESS.getCode(),
+                "执行成功");
+//        result.success(true);
+//        result.code(ResultCode.SUCCESS.getCode());
+//        result.message("执行成功");
         return result;
     }
+
 
     /**
      * 成功执行，并返回数据
@@ -35,10 +50,11 @@ public class Result<T> implements Serializable {
      * @return
      */
     public static<T> Result<T> ok(T data){
-        Result<T> result = new Result<T>();
-        result.success(true);
-        result.code(ResultCode.SUCCESS.getCode());
-        result.message("执行成功");
+        Result<T> result = new Result<T>(true,ResultCode.SUCCESS.getCode(),
+                "执行成功",data);
+//        result.success(true);
+//        result.code(ResultCode.SUCCESS.getCode());
+//        result.message("执行成功");
 //        result.setData(data);
         return result;
     }

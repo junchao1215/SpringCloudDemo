@@ -1,8 +1,8 @@
 package com.client.auth;
 
 import com.alibaba.fastjson.JSON;
-import com.client.common.Result;
-import com.client.common.ResultCode;
+import common.Result;
+import common.ResultCode;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;

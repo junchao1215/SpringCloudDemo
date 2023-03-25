@@ -18,8 +18,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 @Configuration
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     //注入异常处理类
@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // 对于登录接口 允许匿名访问
-                .antMatchers("/user/login").anonymous()
+                .antMatchers("/userApi/login").anonymous()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
         http.formLogin().successHandler(authenticationSuccessHandler).failureHandler(authenticationFailureHandler);

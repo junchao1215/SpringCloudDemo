@@ -1,14 +1,15 @@
 package com.client.service.impl;
 
 import com.client.auth.*;
-import com.client.common.Result;
 import com.client.service.LoginService;
+import common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import com.client.auth.JwtUtil;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -17,12 +18,11 @@ import java.util.Objects;
 public class LoginServiceImpl implements LoginService {
     @Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
     private JwtUtil jwtUtil;
     @Autowired
     private RedisCache redisCache;
     @Override
-    public Result login(User user) {
+    public Result<LoginUser> login(User user) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUserName(),user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if(Objects.isNull(authenticate)){
@@ -35,14 +35,13 @@ public class LoginServiceImpl implements LoginService {
         //authenticate存入redis
         redisCache.setCacheObject("login:"+userId,loginUser);
         //把token响应给前端
-        HashMap<String,String> map = new HashMap<>();
-        map.put("token",jwt);
-        return Result.ok(map);
+        loginUser.setToken(jwt);
+        return Result.ok(loginUser);
 
 
     }
     @Override
-    public Result logout() {
+    public Result<LoginUser> logout() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         Long userid = loginUser.getUser().getId();

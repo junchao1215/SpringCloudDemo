@@ -1,17 +1,16 @@
 package com.client.controller;
 
 import com.client.auth.User;
-import com.client.common.Result;
-import com.client.feign.FeignClientService;
 import com.client.log.OperatorLog;
 import com.client.service.LoginService;
+import common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/userApi")
 @Slf4j
 public class UserController {
 
@@ -24,11 +23,16 @@ public class UserController {
     }
 
 
-    @Autowired
-    FeignClientService feignClientService;
+//    @Autowired
+//    FeignClientService feignClientService;
     @GetMapping("/hello")
-    public String hello(){
-        return feignClientService.hello();
+//    @GlobalTransactional(rollbackFor = Throwable.class)
+    public String hello() throws Exception {
+        return "";
+
+//            feignClientService.insert();
+//            feignClientService.update();
+//        return feignClientService.hello();
     }
 
 

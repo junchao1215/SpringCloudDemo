@@ -4,8 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -14,14 +12,14 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
 
-@Data
-@ConfigurationProperties(prefix = "jwt")
+//@Data
+//@ConfigurationProperties(prefix = "jwt")
 @Component
 public class JwtUtil {
     //有效期为
     public static final Long JWT_TTL = 60 * 60 *1000L;// 60 * 60 *1000  一个小时
     //设置秘钥明文
-    public static final String JWT_KEY = "sangeng";
+    public static final String JWT_KEY = "IT1995";
 
     public static String getUUID(){
         String token = UUID.randomUUID().toString().replaceAll("-", "");

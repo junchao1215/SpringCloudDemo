@@ -13,23 +13,35 @@ spring:
           predicates:
             - Query=url,baidu
 #        - id: consumer
-#          uri: http://localhost:8080
+#          uri: http://localhost:8081
 #          predicates:
 #            - Path=/user/hello
-        - id: product
-          uri: lb://nacos-server-consumer
+        - id: student
+          uri: lb://nacos-client
           predicates:
-            - Path=/user/**
-          filters:
-            - AddRequestHeader=X-Request-Foo, Bar
-            - name: RequestRateLimiter
-              args:
-                # 令牌桶每秒填充平均速率
-                redis-rate-limiter.replenishRate: 1
-                # 令牌桶的上限
-                redis-rate-limiter.burstCapacity: 2
-                # 使用SpEL表达式从Spring容器中获取Bean对象
-                key-resolver: "#{@pathKeyResolver}"
+            - Path=/studentApi/**
+        - id: parent
+          uri: lb://nacos-client
+          predicates:
+            - Path=/parentApi/**
+        - id: teacher
+          uri: lb://nacos-client
+          predicates:
+            - Path=/teacherApi/**
+        - id: user
+          uri: lb://nacos-client
+          predicates:
+            - Path=/userApi/login
+#          filters:
+#            - AddRequestHeader=X-Request-Foo, Bar
+#            - name: RequestRateLimiter
+#              args:
+#                # 令牌桶每秒填充平均速率
+#                redis-rate-limiter.replenishRate: 1
+#                # 令牌桶的上限
+#                redis-rate-limiter.burstCapacity: 2
+#                # 使用SpEL表达式从Spring容器中获取Bean对象
+#                key-resolver: "#{@pathKeyResolver}"
 
   application:
     name: gateway

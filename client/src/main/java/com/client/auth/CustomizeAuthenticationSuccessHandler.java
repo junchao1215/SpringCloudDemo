@@ -12,8 +12,8 @@ import java.io.IOException;
 
 @Component
 public class CustomizeAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-    @Resource
-    private JwtUtil jwtUtils;
+//    @Resource
+//    private JwtUtil jwtUtils;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
 //        //设置客户端的响应的内容类型

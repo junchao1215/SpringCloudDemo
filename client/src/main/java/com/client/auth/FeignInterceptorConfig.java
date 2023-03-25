@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0.0
  * @date 2021/4/16 21:19
  */
-@Configuration
+//@Configuration
 public class FeignInterceptorConfig implements RequestInterceptor {
 
     public FeignInterceptorConfig() {}

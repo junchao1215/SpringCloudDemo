@@ -1,7 +1,7 @@
 package com.client.auth;
 
 import com.alibaba.fastjson.JSON;
-import com.client.common.ResultCode;
+import common.ResultCode;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

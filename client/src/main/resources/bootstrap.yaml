@@ -11,3 +11,25 @@ spring:
         encode: UTF-8
         timeout: 3000
         server-addr: 127.0.0.1:8848
+#    seata:
+#      enabled: true
+#      enable-auto-data-source-proxy: false
+#      application-id: ${spring.application.name}
+#      txServiceGroup: nacos-server-consumer-seata-service-group
+#
+#      registry:
+#        type: nacos
+#        nacos:
+#          application: seata-server
+#          server-addr: 127.0.0.1:8848
+#          namespace: 085fcaf1-5a31-4746-a2f0-f1fce0610e5d
+#          group: SEATA_GROUP
+#          username: nacos
+#          password: nacos
+#      config:
+#        nacos:
+#          server-addr: 127.0.0.1:8848
+#          namespace: a3f29d1e-33ed-46ac-a13c-daa12280eb83
+#          group: SEATA_GROUP
+#          username: nacos
+#          password: nacos
