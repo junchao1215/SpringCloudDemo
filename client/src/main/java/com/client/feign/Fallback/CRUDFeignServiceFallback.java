@@ -27,14 +27,15 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
     }
 
     @Override
-    public Result<Student> editStudent(Student student) {
+    public Student editStudent(Student student) {
         return null;
     }
 
     @Override
-    public void getStudentById(Student student) {
-
+    public Student getStudentById(Long id) {
+        return null;
     }
+
 
     @Override
     public void findAllStudent(Student student) {

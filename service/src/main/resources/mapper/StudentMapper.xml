@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.server.mapper.StudentMapper">
+    <resultMap id="baseResult" type="entity.Student">
+        <id column="id" property="id"></id>
+        <result column="student_nm" property="studentNm"></result>
+        <result column="student_no" property="studentNo"></result>
+        <collection property="parentList" column="student_no" select="selectParentByStudentNo">
+        </collection>
+        <collection property="teachers" column="student_no" select="selectTeacherByStudentNo">
+        </collection>
+    </resultMap>
+
+    <select id="getStudentById" resultMap="baseResult">
+        select * from student where id = #{id}
+    </select>
+
+    <resultMap id="baseTeacherResult" type="entity.Teacher">
+        <id column="id" property="id"></id>
+        <result column="teacher_nm" property="teacherNm"></result>
+        <result column="teacher_no" property="teacherNo"></result>
+
+    </resultMap>
+    <select id="selectTeacherByStudentNo" resultMap="baseTeacherResult">
+        select * from teacher where student_no = #{student_no}
+    </select>
+
+
+
+    <resultMap id="baseParentResult" type="entity.Parent">
+        <id column="id" property="id"></id>
+        <result column="parent_nm" property="parentNm"></result>
+        <result column="id_no" property="idNo"></result>
+
+    </resultMap>
+    <select id="selectParentByStudentNo" resultMap="baseParentResult">
+        select * from parent where student_no = #{student_no}
+    </select>
+</mapper>
+

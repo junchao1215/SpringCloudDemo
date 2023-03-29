@@ -6,10 +6,7 @@ import common.Result;
 import entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -27,6 +24,14 @@ public class StudentController {
     }
 
 
+    @GetMapping("/getById/{id}")
+    @OperatorLog(operate="根据ID获取学生信息", module="学生")
+    public Result<Student> getById(@PathVariable Long id){
+        Student student = new Student();
+        student.setId(id);
+        student =  studentService.getById(student);
+        return Result.ok(student);
+    }
 
 
 
