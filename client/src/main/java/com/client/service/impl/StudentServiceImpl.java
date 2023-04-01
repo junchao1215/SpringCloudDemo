@@ -2,8 +2,9 @@ package com.client.service.impl;
 
 import com.client.feign.CRUDFeignClientService;
 import com.client.service.StudentService;
-import common.Result;
+import com.client.service.UserService;
 import entity.Student;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,15 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     CRUDFeignClientService crudFeignClientService;
+    @Autowired
+    private UserService userService;
     @Override
     public void edit(Student stu) {
+        User user =User.builder()
+                .userName(stu.getStudentNo())
+                .nickName(stu.getStudentNm())
+                .build();
+        userService.saveUser(user);
         crudFeignClientService.editStudent(stu);
     }
 

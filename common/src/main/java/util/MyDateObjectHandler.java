@@ -18,6 +18,7 @@ public class MyDateObjectHandler implements MetaObjectHandler {
         //setFieldValByName(String fieldName, Object fieldVal, MetaObject metaObject)
         this.setFieldValByName("createTime",new Date(),metaObject);
         this.setFieldValByName("updateDt",new Date(),metaObject);
+
     }
 
     public void updateFill(MetaObject metaObject) {

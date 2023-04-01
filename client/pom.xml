@@ -42,6 +42,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
         <!--sentinel-->
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba.cloud</groupId>-->

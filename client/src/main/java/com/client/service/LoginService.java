@@ -1,7 +1,7 @@
 package com.client.service;
 
 import com.client.auth.LoginUser;
-import com.client.auth.User;
+import entity.User;
 import common.Result;
 
 public interface LoginService {

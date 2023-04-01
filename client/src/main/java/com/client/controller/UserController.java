@@ -1,6 +1,6 @@
 package com.client.controller;
 
-import com.client.auth.User;
+import entity.User;
 import com.client.log.OperatorLog;
 import com.client.service.LoginService;
 import common.Result;

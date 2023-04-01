@@ -1,8 +1,5 @@
 package com.client.service;
 
-import com.client.auth.User;
-import common.Result;
-import entity.Student;
 import entity.Teacher;
 
 import java.util.List;

@@ -2,6 +2,7 @@ package com.client.auth;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

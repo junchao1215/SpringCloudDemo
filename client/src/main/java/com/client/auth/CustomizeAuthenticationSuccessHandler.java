@@ -3,6 +3,7 @@ package com.client.auth;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
+import util.JwtUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -12,8 +13,8 @@ import java.io.IOException;
 
 @Component
 public class CustomizeAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-//    @Resource
-//    private JwtUtil jwtUtils;
+    @Resource
+    private JwtUtil jwtUtils;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
 //        //设置客户端的响应的内容类型
