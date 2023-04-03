@@ -1,8 +1,9 @@
 package com.client.service.impl;
 
-import com.client.feign.TeacherFeignClientService;
+import com.client.feign.CRUDFeignClientService;
 import com.client.service.TeacherService;
 import com.client.service.UserService;
+import entity.PublishHomeWork;
 import entity.Teacher;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.List;
 @Service
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
-    TeacherFeignClientService teacherFeignClientService;
+    CRUDFeignClientService crudFeignClientService;
     @Autowired
     private UserService userService;
     @Override
@@ -23,18 +24,23 @@ public class TeacherServiceImpl implements TeacherService {
                 .nickName(teacher.getTeacherNm())
                 .build();
         userService.saveUser(user);
-        teacherFeignClientService.editTeacher(teacher);
+        crudFeignClientService.editTeacher(teacher);
     }
 
     @Override
     public Teacher getById(Teacher teacher) {
-        teacherFeignClientService.getTeacherById(teacher);
+        crudFeignClientService.getTeacherById(teacher);
         return null;
     }
 
     @Override
     public List<Teacher> findAll(Teacher teacher) {
-        teacherFeignClientService.findAllTeacher(teacher);
+        crudFeignClientService.findAllTeacher(teacher);
         return null;
+    }
+
+    @Override
+    public void editHomeWork(PublishHomeWork work) {
+
     }
 }

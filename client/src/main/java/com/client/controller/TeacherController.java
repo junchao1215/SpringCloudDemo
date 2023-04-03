@@ -3,6 +3,7 @@ package com.client.controller;
 import com.client.log.OperatorLog;
 import com.client.service.TeacherService;
 import common.Result;
+import entity.PublishHomeWork;
 import entity.Teacher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,12 @@ public class TeacherController {
     @OperatorLog(operate="保存/修改学生信息", module="学生")
     public Result edit(@RequestBody Teacher teacher) {
         teacherService.edit(teacher);
+        return Result.ok();
+    }
+    @PostMapping("/editHomeWork")
+    @OperatorLog(operate="保存/修改学生信息", module="学生")
+    public Result editHomeWork(@RequestBody PublishHomeWork work) {
+        teacherService.editHomeWork(work);
         return Result.ok();
     }
 

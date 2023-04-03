@@ -30,7 +30,11 @@ spring:
 #    enabled: true
 #  circuitbreaker:
 #    enabled: true
-
+oss:
+  AccessKey_ID: LTAI5tDcZ6cuhyeNmDvhdRMB
+  AccessKey_Secret: HDclQ5pE9tcdxeF2BqaaHPWrksk65J
+  endpoint: oss-cn-beijing.aliyuncs.com
+  bucket: school-homework
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

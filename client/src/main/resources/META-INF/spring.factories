@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-util.JwtUtil
+util.JwtUtil,\
+util.FileOssUtil
