@@ -2,28 +2,27 @@ package com.client.feign.Fallback;
 
 import com.client.feign.CRUDFeignClientService;
 import common.Result;
-import entity.Parent;
-import entity.Student;
-import entity.Teacher;
+import entity.*;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class CRUDFeignServiceFallback implements CRUDFeignClientService {
 
+    @Override
+    public void editTeacher(Teacher teacher) {
+
+    }
 
     @Override
-    public Result<Teacher> editTeacher(Teacher teacher) {
+    public Teacher getTeacherById(Teacher teacher) {
         return null;
     }
 
     @Override
-    public void getTeacherById(Teacher teacher) {
-
-    }
-
-    @Override
-    public void findAllTeacher(Teacher teacher) {
-
+    public List<Teacher> findAllTeacher(Teacher teacher) {
+        return null;
     }
 
     @Override
@@ -36,10 +35,9 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
         return null;
     }
 
-
     @Override
-    public void findAllStudent(Student student) {
-
+    public List<Student> findAllStudent(Student student) {
+        return null;
     }
 
     @Override
@@ -56,4 +54,16 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
     public void findAllParent(Parent parent) {
 
     }
+
+    @Override
+    public void editHomeWork(HomeWork work) {
+
+    }
+
+    @Override
+    public void editFinishHomeWork(FinishHomeWork work) {
+
+    }
+
+
 }

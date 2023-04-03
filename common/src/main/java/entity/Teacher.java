@@ -31,4 +31,5 @@ public class Teacher {
     private String classType;
     @TableField(exist = false)
     private List<Student> studentList;
+    private String url;
 }

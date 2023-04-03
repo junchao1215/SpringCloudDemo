@@ -1,20 +1,20 @@
 package com.client.feign;
 
 import common.Result;
-import entity.Parent;
-import entity.Student;
-import entity.Teacher;
+import entity.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @FeignClient(value = "nacos-server",path = "/crud")
 public interface CRUDFeignClientService {
     @PostMapping("/editTeacher")
-    Result<Teacher> editTeacher(@RequestBody Teacher teacher);
+    void editTeacher(@RequestBody Teacher teacher);
     @GetMapping("/getTeacherObject")
-    void getTeacherById(@RequestParam("teacher") Teacher teacher);
+    Teacher getTeacherById(@RequestParam("teacher") Teacher teacher);
     @GetMapping("/findAllTeacher")
-    void findAllTeacher(@RequestParam("teacher") Teacher teacher);
+    List<Teacher> findAllTeacher(@RequestParam("teacher") Teacher teacher);
 
 
 
@@ -23,7 +23,7 @@ public interface CRUDFeignClientService {
     @GetMapping("/getStudentById/{id}")
     Student getStudentById(@PathVariable("id") Long id);
     @GetMapping("/findAllStudent")
-    void findAllStudent(@RequestParam("student") Student student);
+    List<Student> findAllStudent(@RequestParam("student") Student student);
 
 
     @PostMapping("/editParent")
@@ -32,4 +32,11 @@ public interface CRUDFeignClientService {
     void getParentById(@RequestParam("parent") Parent parent);
     @GetMapping("/findAllParent")
     void findAllParent(@RequestParam("parent") Parent parent);
+
+
+
+    @PostMapping("/editHomeWork")
+    void editHomeWork(@RequestBody HomeWork work);
+    @PostMapping("/editFinishHomeWork")
+    void editFinishHomeWork(@RequestBody FinishHomeWork work);
 }

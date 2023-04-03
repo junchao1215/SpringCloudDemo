@@ -3,7 +3,7 @@ package com.client.service.impl;
 import com.client.feign.CRUDFeignClientService;
 import com.client.service.TeacherService;
 import com.client.service.UserService;
-import entity.PublishHomeWork;
+import entity.HomeWork;
 import entity.Teacher;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,12 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public void editHomeWork(PublishHomeWork work) {
+    public void editHomeWork(HomeWork work) {
+        crudFeignClientService.editHomeWork(work);
+    }
 
+    @Override
+    public void publishHomeWork(HomeWork work) {
+        crudFeignClientService.editHomeWork(work);
     }
 }
