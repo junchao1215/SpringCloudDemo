@@ -1,12 +1,7 @@
-package com.client.service.impl;
+package file;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.model.CannedAccessControlList;
-import com.aliyun.oss.model.ObjectMetadata;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.aliyun.oss.model.SetObjectAclRequest;
-import com.client.service.FileService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import util.FileOssUtil;
