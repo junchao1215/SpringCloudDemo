@@ -49,5 +49,7 @@ public class Student implements Serializable {
     @TableField(exist = false)
     private List<Teacher> teachers;
 
+    private String url;
+
 
 }

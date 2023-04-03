@@ -17,4 +17,6 @@ public class Parent  {
     private String parentNm;
     private String idNo;
     private String relation;
+
+    private String url;
 }

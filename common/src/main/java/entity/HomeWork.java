@@ -7,8 +7,10 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class PublishHomeWork {
+public class HomeWork {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     /**
@@ -36,4 +38,6 @@ public class PublishHomeWork {
     private String files;
     //班级
     private String level;
+    @TableField(exist = false)
+    private List<String> urls;
 }
