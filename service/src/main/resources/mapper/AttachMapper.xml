@@ -9,8 +9,8 @@
 
     </resultMap>
 
-    <select id="selectAttachByBusiId" resultMap="baseResult">
-        select * from attachment where busi_id = #{busiId}
+    <select id="selectAttachByBusiId" resultType="java.lang.String">
+        select url from attachment where busi_id = #{busiId}
     </select>
 
 

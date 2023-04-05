@@ -13,9 +13,10 @@
         <result column="level" property="level"></result>
 
 
-        <collection property="attaches" column="id" select="com.server.mapper.AttachMapper.selectAttachByBusiId">
+        <collection property="url" column="id" select="com.server.mapper.AttachMapper.selectAttachByBusiId">
         </collection>
-
+        <collection property="finishHomeWorks" column="id" select="com.server.mapper.FinishWorkMapper.getFinishHomeWorkByBusiId">
+        </collection>
     </resultMap>
 
     <select id="selectHomeWorkById" resultMap="baseResult">

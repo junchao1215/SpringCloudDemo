@@ -6,4 +6,5 @@ import entity.FinishHomeWork;
 
 public interface FinishWorkService extends IService<FinishHomeWork> {
     FinishHomeWork getHomeWork(Long id);
+    void saveFinishHomeWork(FinishHomeWork work);
 }

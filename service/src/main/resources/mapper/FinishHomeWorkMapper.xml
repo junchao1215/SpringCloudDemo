@@ -13,7 +13,7 @@
         <result column="is_join" property="isJoin"></result>
 
 
-        <collection property="attaches" column="id" select="com.server.mapper.AttachMapper.selectAttachByBusiId">
+        <collection property="url" column="id" select="com.server.mapper.AttachMapper.selectAttachByBusiId">
         </collection>
 
     </resultMap>
@@ -21,7 +21,9 @@
     <select id="getFinishHomeWorkById" resultMap="baseResult">
         select * from finish_home_work where id = #{id}
     </select>
-
+    <select id="getFinishHomeWorkByBusiId" resultMap="baseResult">
+        select * from finish_home_work where status=1 and pub_work_id = #{id}
+    </select>
 
 </mapper>
 

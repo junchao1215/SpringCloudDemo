@@ -41,5 +41,6 @@ public class FinishHomeWork {
     //班级
     private String level;
     @TableField(exist = false)
-    private List<Attach> attaches;
+    private List<String> url;
+
 }

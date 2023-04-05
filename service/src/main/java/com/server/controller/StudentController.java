@@ -32,7 +32,7 @@ public class StudentController {
 
     @PostMapping("/editFinishHomeWork")
     public void editFinishHomeWork(@RequestBody FinishHomeWork work) {
-        finishHomeWorkService.saveOrUpdate(work);
+        finishHomeWorkService.saveFinishHomeWork(work);
     }
     @PostMapping("/acceptHomeWork/{id}")
     public HomeWork acceptHomeWork(@PathVariable(name = "id") Long id) {

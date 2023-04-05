@@ -38,5 +38,7 @@ public class HomeWork {
     //班级
     private String level;
     @TableField(exist = false)
-    private List<Attach> attaches;
+    private List<String> url;
+    @TableField(exist = false)
+    private List<FinishHomeWork> finishHomeWorks;
 }
