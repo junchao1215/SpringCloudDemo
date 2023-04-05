@@ -65,5 +65,15 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
 
     }
 
+    @Override
+    public FinishHomeWork checkFinishHomeWork(Long id) {
+        return null;
+    }
+
+    @Override
+    public HomeWork acceptHomeWork(Long id) {
+        return null;
+    }
+
 
 }

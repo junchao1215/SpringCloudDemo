@@ -1,8 +1,10 @@
 package com.server.controller;
 
+import com.server.service.FinishWorkService;
 import com.server.service.HomeWorkService;
 import com.server.service.TeacherService;
 import common.Result;
+import entity.FinishHomeWork;
 import entity.HomeWork;
 import entity.Student;
 import entity.Teacher;
@@ -16,6 +18,8 @@ public class TeacherController {
     private TeacherService teacherService;
     @Autowired
     private HomeWorkService homeWorkService;
+    @Autowired
+    private FinishWorkService finishWorkService;
     @PostMapping(value = "/editTeacher")
     public Result<Teacher> insert(@RequestBody Teacher teacher) {
          teacherService.saveOrUpdate(teacher);
@@ -25,6 +29,11 @@ public class TeacherController {
     @PostMapping("/editHomeWork")
     public void editHomeWork(@RequestBody HomeWork work) {
         homeWorkService.saveOrUpdate(work);
+    }
+
+    @PostMapping("/checkFinishHomeWork/{id}")
+    public FinishHomeWork checkFinishHomeWork(@PathVariable(name = "id") Long id) {
+        return finishWorkService.getHomeWork(id);
     }
 
 }

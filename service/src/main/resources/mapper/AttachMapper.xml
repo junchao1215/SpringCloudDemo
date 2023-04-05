@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.server.mapper.AttachMapper">
+    <resultMap id="baseResult" type="entity.Attach">
+        <id column="id" property="id"></id>
+        <result column="busi_id" property="busiId"></result>
+        <result column="url" property="url"></result>
+        <result column="update_dt" property="updateDt"></result>
+
+    </resultMap>
+
+    <select id="selectAttachByBusiId" resultMap="baseResult">
+        select * from attachment where busi_id = #{busiId}
+    </select>
+
+
+
+</mapper>
+

@@ -38,8 +38,8 @@ public class FinishHomeWork {
     private String course;
     //内容
     private String content;
-    //附件
-    private String files;
     //班级
     private String level;
+    @TableField(exist = false)
+    private List<Attach> attaches;
 }

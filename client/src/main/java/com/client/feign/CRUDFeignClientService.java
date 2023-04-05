@@ -39,4 +39,10 @@ public interface CRUDFeignClientService {
     void editHomeWork(@RequestBody HomeWork work);
     @PostMapping("/editFinishHomeWork")
     void editFinishHomeWork(@RequestBody FinishHomeWork work);
+
+    @PostMapping("/checkFinishHomeWork/{id}")
+    FinishHomeWork checkFinishHomeWork(@PathVariable("id") Long id);
+
+    @PostMapping("/acceptHomeWork/{id}")
+    HomeWork acceptHomeWork(@PathVariable("id") Long id);
 }

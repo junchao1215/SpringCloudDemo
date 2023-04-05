@@ -3,14 +3,12 @@ package com.client.controller;
 import com.client.log.OperatorLog;
 import com.client.service.TeacherService;
 import common.Result;
+import entity.FinishHomeWork;
 import entity.HomeWork;
 import entity.Teacher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -34,8 +32,16 @@ public class TeacherController {
     @PostMapping("/publishHomeWork")
     @OperatorLog(operate="发布作业", module="教师")
     public Result publishHomeWork(@RequestBody HomeWork work) {
+        work.setStatus(1);
         teacherService.publishHomeWork(work);
         return Result.ok();
+    }
+
+    @PostMapping("/checkHomeWork/{id}")
+    @OperatorLog(operate="检查作业", module="教师")
+    public Result checkHomeWork(@PathVariable("id") Long id) {
+        FinishHomeWork work = teacherService.checkHomeWork(id);
+        return Result.ok(work);
     }
     public Result getById() {
         return null;

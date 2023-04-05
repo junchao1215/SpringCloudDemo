@@ -3,6 +3,8 @@ package com.client.service.impl;
 import com.client.feign.CRUDFeignClientService;
 import com.client.service.StudentService;
 import com.client.service.UserService;
+import entity.FinishHomeWork;
+import entity.HomeWork;
 import entity.Student;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,20 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findAll(Student student) {
         crudFeignClientService.findAllStudent(student);
         return null;
+    }
+
+    @Override
+    public void editHomeWork(FinishHomeWork work) {
+        crudFeignClientService.editFinishHomeWork(work);
+    }
+
+    @Override
+    public void publishHomeWork(FinishHomeWork work) {
+        crudFeignClientService.editFinishHomeWork(work);
+    }
+
+    @Override
+    public HomeWork acceptHomeWork(Long id) {
+        return crudFeignClientService.acceptHomeWork(id);
     }
 }

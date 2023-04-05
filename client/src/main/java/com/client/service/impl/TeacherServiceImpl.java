@@ -3,6 +3,7 @@ package com.client.service.impl;
 import com.client.feign.CRUDFeignClientService;
 import com.client.service.TeacherService;
 import com.client.service.UserService;
+import entity.FinishHomeWork;
 import entity.HomeWork;
 import entity.Teacher;
 import entity.User;
@@ -47,5 +48,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void publishHomeWork(HomeWork work) {
         crudFeignClientService.editHomeWork(work);
+    }
+
+    @Override
+    public FinishHomeWork checkHomeWork(Long id) {
+        return crudFeignClientService.checkFinishHomeWork(id);
     }
 }

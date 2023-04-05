@@ -2,11 +2,13 @@ package com.server.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import entity.HomeWork;
+import entity.Attach;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
-public interface HomeWorkMapper extends BaseMapper<HomeWork> {
-    HomeWork selectHomeWorkById(@Param("id") Long id);
+public interface AttachMapper extends BaseMapper<Attach> {
+    List<Attach> selectAttachByBusiId(@Param("busiId") Long busiId);
 }

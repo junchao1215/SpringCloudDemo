@@ -3,6 +3,8 @@ package com.client.controller;
 import com.client.log.OperatorLog;
 import com.client.service.StudentService;
 import common.Result;
+import entity.FinishHomeWork;
+import entity.HomeWork;
 import entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,25 @@ public class StudentController {
         return Result.ok(student);
     }
 
+    @PostMapping("/editHomeWork")
+    @OperatorLog(operate="保存/修改作业", module="学生")
+    public Result editHomeWork(@RequestBody FinishHomeWork work) {
+        studentService.editHomeWork(work);
+        return Result.ok();
+    }
+    @PostMapping("/publishHomeWork")
+    @OperatorLog(operate="提交作业", module="学生")
+    public Result publishHomeWork(@RequestBody FinishHomeWork work) {
+        work.setStatus(1);
+        studentService.publishHomeWork(work);
+        return Result.ok();
+    }
 
+    @PostMapping("/acceptHomeWork/{id}")
+    @OperatorLog(operate="接收作业", module="学生")
+    public Result checkHomeWork(@PathVariable("id") Long id) {
+        HomeWork work = studentService.acceptHomeWork(id);
+        return Result.ok(work);
+    }
 
 }
