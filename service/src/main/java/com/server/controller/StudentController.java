@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.server.service.*;
 import common.Result;
-import entity.*;
+import entity.Course;
+import entity.FinishHomeWork;
+import entity.HomeWork;
+import entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +28,7 @@ public class StudentController {
     private LevelService levelService;
     @PostMapping(value = "/editStudent")
     public Result<Student> insert(@RequestBody Student student) {
-         studentService.saveOrUpdate(student);
+         studentService.saveStudent(student);
          return Result.ok();
     }
     @GetMapping(value = "/getStudentById/{id}")
@@ -46,8 +49,8 @@ public class StudentController {
     @PostMapping("/viewCourse/{id}")
     public List<Course> viewCourse(@PathVariable(name = "id") Long id) {
         QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq();
-        courseService.list(queryWrapper);
+        queryWrapper.eq("level",id);
+        return courseService.list(queryWrapper);
     }
 
 }

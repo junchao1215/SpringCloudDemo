@@ -23,12 +23,8 @@ public class Student implements Serializable {
      * 业务唯一主键
      */
     private String studentNo;
-    private String level;
-    /**
-     * 班级
-     */
-    @TableField(exist = false)
-    private List<Level> levels;
+    private Long level;
+
     /**
      * 性别
      */
@@ -45,10 +41,16 @@ public class Student implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateDt;
-
+    /**
+     * 家长
+     */
     @TableField(exist = false)
     private List<Parent> parentList;
-
+    /**
+     * 班级
+     */
+    @TableField(exist = false)
+    private List<Level> levels;
 
     private String url;
 

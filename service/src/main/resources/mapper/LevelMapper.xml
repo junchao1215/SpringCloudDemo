@@ -3,15 +3,18 @@
 <mapper namespace="com.server.mapper.LevelMapper">
     <resultMap id="baseResult" type="entity.Level">
         <id column="id" property="id"></id>
-        <result column="student_nm" property="gradeLevel"></result>
-        <result column="student_no" property="classLevel"></result>
+        <result column="grade_level" property="gradeLevel"></result>
+        <result column="class_level" property="classLevel"></result>
+        <result column="remark" property="remark"></result>
 
     </resultMap>
 
     <select id="getLevelByTeacherNo" resultMap="baseResult">
         select * from level where teacher_no = #{teacherno}
     </select>
-
+    <select id="getLevelByStudentNo" resultMap="baseResult">
+        select * from level where teacher_no = #{teacherno}
+    </select>
 
 </mapper>
 

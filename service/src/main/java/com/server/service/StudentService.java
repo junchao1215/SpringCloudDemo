@@ -6,4 +6,5 @@ import entity.Student;
 
 public interface StudentService extends IService<Student> {
     Student getStudentById(Long id);
+    void saveStudent(Student student);
 }

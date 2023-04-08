@@ -27,7 +27,7 @@ public class TeacherController {
 
     @PostMapping("/editHomeWork")
     public void editHomeWork(@RequestBody HomeWork work) {
-        homeWorkService.saveOrUpdate(work);
+        homeWorkService.saveHomeWork(work);
     }
 
     @PostMapping("/checkFinishHomeWork/{id}")
@@ -36,19 +36,17 @@ public class TeacherController {
     }
     @PostMapping(value = "/getTeacherObject/{id}")
     public Result<Teacher> getTeacherObject(@PathVariable(name = "id") Long id) {
-        teacherService.getTeacherById(id);
-        return Result.ok();
+        Teacher teacher = teacherService.getTeacherById(id);
+        return Result.ok(teacher);
     }
 
     @PostMapping("/editLevel")
-    public Result editLevel(@RequestBody Level level) {
+    public void editLevel(@RequestBody Level level) {
         levelService.saveLevel(level);
-        return Result.ok();
     }
 
     @PostMapping("/editCourse")
-    public Result editCourse(@RequestBody Course course) {
-        courseService.saveOrUpdate(course);
-        return Result.ok();
+    public void editCourse(@RequestBody Course course) {
+        courseService.saveCourse(course);
     }
 }

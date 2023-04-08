@@ -58,6 +58,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Course> viewCourse(Long id) {
-        return null;
+        return crudFeignClientService.viewCourse(id);
     }
 }

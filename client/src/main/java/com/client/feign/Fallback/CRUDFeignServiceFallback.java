@@ -92,8 +92,8 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
     }
 
     @Override
-    public void viewCourse(Long id) {
-
+    public List<Course> viewCourse(Long id) {
+        return null;
     }
 
 

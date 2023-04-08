@@ -7,7 +7,7 @@
         <result column="student_no" property="studentNo"></result>
         <collection property="parentList" column="student_no" select="selectParentByStudentNo">
         </collection>
-        <collection property="parentList" column="student_no" select="selectParentByStudentNo">
+        <collection property="levels" column="student_no" select="com.server.mapper.LevelMapper.getLevelByStudentNo">
         </collection>
     </resultMap>
 

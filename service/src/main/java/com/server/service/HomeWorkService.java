@@ -6,4 +6,6 @@ import entity.HomeWork;
 
 public interface HomeWorkService extends IService<HomeWork> {
     HomeWork getHomeWork(Long id);
+
+    void saveHomeWork(HomeWork homeWork);
 }

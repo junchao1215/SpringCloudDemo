@@ -36,7 +36,8 @@ public class HomeWork {
     //内容
     private String content;
     //班级
-    private String level;
+    @TableField(exist = false)
+    private List<Level> levels;
     @TableField(exist = false)
     private List<String> url;
     @TableField(exist = false)

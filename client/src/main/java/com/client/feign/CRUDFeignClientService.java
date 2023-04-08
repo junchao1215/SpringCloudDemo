@@ -57,5 +57,5 @@ public interface CRUDFeignClientService {
     void viewLevel(@PathVariable("id") Long id);
 
     @PostMapping("/viewCourse/{id}")
-    void viewCourse(@PathVariable("id") Long id);
+    List<Course> viewCourse(@PathVariable("id") Long id);
 }

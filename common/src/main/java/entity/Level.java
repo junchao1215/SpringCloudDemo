@@ -17,8 +17,6 @@ public class Level {
     private String classLevel;
     //描述
     private String remark;
-    //教师
-    private String teacherNo;
     @TableField(exist = false)
     private List<Teacher> teachers;
     @TableField(exist = false)

@@ -6,4 +6,5 @@ import entity.Course;
 
 
 public interface CourseService extends IService<Course> {
+     void saveCourse(Course course);
 }
