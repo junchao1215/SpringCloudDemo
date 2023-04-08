@@ -11,8 +11,8 @@ import java.util.List;
 public interface CRUDFeignClientService {
     @PostMapping("/editTeacher")
     void editTeacher(@RequestBody Teacher teacher);
-    @GetMapping("/getTeacherObject")
-    Teacher getTeacherById(@RequestParam("teacher") Teacher teacher);
+    @GetMapping("/getTeacherObject/{id}")
+    Teacher getTeacherById(@PathVariable("id") Long id);
     @GetMapping("/findAllTeacher")
     List<Teacher> findAllTeacher(@RequestParam("teacher") Teacher teacher);
 
@@ -45,4 +45,17 @@ public interface CRUDFeignClientService {
 
     @PostMapping("/acceptHomeWork/{id}")
     HomeWork acceptHomeWork(@PathVariable("id") Long id);
+
+    @PostMapping("/editLevel")
+    void editLevel(@RequestBody Level level);
+
+    @PostMapping("/editCourse")
+    void editCourse(@RequestBody Course course);
+
+
+    @PostMapping("/viewLevel/{id}")
+    void viewLevel(@PathVariable("id") Long id);
+
+    @PostMapping("/viewCourse/{id}")
+    void viewCourse(@PathVariable("id") Long id);
 }

@@ -16,9 +16,10 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
     }
 
     @Override
-    public Teacher getTeacherById(Teacher teacher) {
+    public Teacher getTeacherById(Long id) {
         return null;
     }
+
 
     @Override
     public List<Teacher> findAllTeacher(Teacher teacher) {
@@ -73,6 +74,26 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
     @Override
     public HomeWork acceptHomeWork(Long id) {
         return null;
+    }
+
+    @Override
+    public void editLevel(Level level) {
+
+    }
+
+    @Override
+    public void editCourse(Course course) {
+
+    }
+
+    @Override
+    public void viewLevel(Long id) {
+
+    }
+
+    @Override
+    public void viewCourse(Long id) {
+
     }
 
 

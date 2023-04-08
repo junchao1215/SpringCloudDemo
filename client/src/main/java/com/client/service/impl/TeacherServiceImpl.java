@@ -3,10 +3,7 @@ package com.client.service.impl;
 import com.client.feign.CRUDFeignClientService;
 import com.client.service.TeacherService;
 import com.client.service.UserService;
-import entity.FinishHomeWork;
-import entity.HomeWork;
-import entity.Teacher;
-import entity.User;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +27,8 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher getById(Teacher teacher) {
-        crudFeignClientService.getTeacherById(teacher);
-        return null;
+
+        return crudFeignClientService.getTeacherById(teacher.getId());
     }
 
     @Override
@@ -53,5 +50,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public FinishHomeWork checkHomeWork(Long id) {
         return crudFeignClientService.checkFinishHomeWork(id);
+    }
+
+    @Override
+    public void editLevel(Level level) {
+         crudFeignClientService.editLevel(level);
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.server.mapper.LevelMapper">
+    <resultMap id="baseResult" type="entity.Level">
+        <id column="id" property="id"></id>
+        <result column="student_nm" property="gradeLevel"></result>
+        <result column="student_no" property="classLevel"></result>
+
+    </resultMap>
+
+    <select id="getLevelByTeacherNo" resultMap="baseResult">
+        select * from level where teacher_no = #{teacherno}
+    </select>
+
+
+</mapper>
+

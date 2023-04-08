@@ -23,10 +23,12 @@ public class Student implements Serializable {
      * 业务唯一主键
      */
     private String studentNo;
+    private String level;
     /**
      * 班级
      */
-    private int level;
+    @TableField(exist = false)
+    private List<Level> levels;
     /**
      * 性别
      */
@@ -46,8 +48,7 @@ public class Student implements Serializable {
 
     @TableField(exist = false)
     private List<Parent> parentList;
-    @TableField(exist = false)
-    private List<Teacher> teachers;
+
 
     private String url;
 

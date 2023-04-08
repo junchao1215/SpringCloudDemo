@@ -1,11 +1,10 @@
 package com.client.controller;
 
 import com.client.log.OperatorLog;
+import com.client.service.CourseService;
 import com.client.service.TeacherService;
 import common.Result;
-import entity.FinishHomeWork;
-import entity.HomeWork;
-import entity.Teacher;
+import entity.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private CourseService courseService;
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改教师信息", module="教师")
     public Result edit(@RequestBody Teacher teacher) {
@@ -43,10 +44,28 @@ public class TeacherController {
         FinishHomeWork work = teacherService.checkHomeWork(id);
         return Result.ok(work);
     }
-    public Result getById() {
-        return null;
+    @PostMapping("/getById/{id}")
+    @OperatorLog(operate="获取教师信息", module="教师")
+    public Result getById(@PathVariable("id") Long id) {
+        Teacher teacher = new Teacher();
+        teacher.setId(id);
+        teacher = teacherService.getById(teacher);
+        return Result.ok(teacher);
     }
 
+    @PostMapping("/editLevel")
+    @OperatorLog(operate="保存/修改班", module="教师")
+    public Result editLevel(@RequestBody Level level) {
+        teacherService.editLevel(level);
+        return Result.ok();
+    }
+
+    @PostMapping("/publishCourse")
+    @OperatorLog(operate="发布课程", module="教师")
+    public Result publishCourse(@RequestBody Course course) {
+        courseService.edit(course);
+        return Result.ok();
+    }
     public Result findAll() {
         return null;
     }

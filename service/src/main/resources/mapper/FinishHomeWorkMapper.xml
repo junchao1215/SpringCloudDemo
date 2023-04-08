@@ -11,11 +11,8 @@
         <result column="content" property="content"></result>
         <result column="level" property="level"></result>
         <result column="is_join" property="isJoin"></result>
-
-
         <collection property="url" column="id" select="com.server.mapper.AttachMapper.selectAttachByBusiId">
         </collection>
-
     </resultMap>
 
     <select id="getFinishHomeWorkById" resultMap="baseResult">

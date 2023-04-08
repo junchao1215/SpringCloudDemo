@@ -3,10 +3,7 @@ package com.client.service.impl;
 import com.client.feign.CRUDFeignClientService;
 import com.client.service.StudentService;
 import com.client.service.UserService;
-import entity.FinishHomeWork;
-import entity.HomeWork;
-import entity.Student;
-import entity.User;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,5 +49,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public HomeWork acceptHomeWork(Long id) {
         return crudFeignClientService.acceptHomeWork(id);
+    }
+
+    @Override
+    public List<Level> viewLevel(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Course> viewCourse(Long id) {
+        return null;
     }
 }

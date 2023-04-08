@@ -7,25 +7,13 @@
         <result column="student_no" property="studentNo"></result>
         <collection property="parentList" column="student_no" select="selectParentByStudentNo">
         </collection>
-        <collection property="teachers" column="student_no" select="selectTeacherByStudentNo">
+        <collection property="parentList" column="student_no" select="selectParentByStudentNo">
         </collection>
     </resultMap>
 
     <select id="getStudentById" resultMap="baseResult">
         select * from student where id = #{id}
     </select>
-
-    <resultMap id="baseTeacherResult" type="entity.Teacher">
-        <id column="id" property="id"></id>
-        <result column="teacher_nm" property="teacherNm"></result>
-        <result column="teacher_no" property="teacherNo"></result>
-
-    </resultMap>
-    <select id="selectTeacherByStudentNo" resultMap="baseTeacherResult">
-        select * from teacher where student_no = #{student_no}
-    </select>
-
-
 
     <resultMap id="baseParentResult" type="entity.Parent">
         <id column="id" property="id"></id>

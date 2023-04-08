@@ -1,8 +1,7 @@
 package com.client.service;
 
-import entity.FinishHomeWork;
-import entity.HomeWork;
-import entity.Student;
+import com.client.service.impl.CourseServiceImpl;
+import entity.*;
 
 import java.util.List;
 
@@ -15,4 +14,8 @@ public interface StudentService {
     void publishHomeWork(FinishHomeWork work);
 
     HomeWork acceptHomeWork(Long id);
+
+    List<Level> viewLevel(Long id);
+
+    List<Course> viewCourse(Long id);
 }

@@ -13,7 +13,6 @@ import java.util.List;
 public class Teacher {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
-    private String studentNo;
     private String teacherNm;
     private int sex;
     private String teacherNo;
@@ -29,7 +28,8 @@ public class Teacher {
      * 英文  数学  政治  书法
      */
     private String classType;
+    //
     @TableField(exist = false)
-    private List<Student> studentList;
+    private List<Level> levels;
     private String url;
 }

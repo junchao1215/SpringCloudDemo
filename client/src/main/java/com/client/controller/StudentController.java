@@ -3,12 +3,12 @@ package com.client.controller;
 import com.client.log.OperatorLog;
 import com.client.service.StudentService;
 import common.Result;
-import entity.FinishHomeWork;
-import entity.HomeWork;
-import entity.Student;
+import entity.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -54,6 +54,13 @@ public class StudentController {
     public Result checkHomeWork(@PathVariable("id") Long id) {
         HomeWork work = studentService.acceptHomeWork(id);
         return Result.ok(work);
+    }
+
+    @PostMapping("/viewCourse/{id}")
+    @OperatorLog(operate="接收课程", module="学生")
+    public Result viewCourse(@PathVariable("id") Long id) {
+        List<Course> list = studentService.viewCourse(id);
+        return Result.ok(list);
     }
 
 }

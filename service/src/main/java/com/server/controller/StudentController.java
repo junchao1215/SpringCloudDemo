@@ -1,14 +1,14 @@
 package com.server.controller;
 
-import com.server.service.FinishWorkService;
-import com.server.service.HomeWorkService;
-import com.server.service.StudentService;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.server.service.*;
 import common.Result;
-import entity.FinishHomeWork;
-import entity.HomeWork;
-import entity.Student;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/crud")
@@ -19,6 +19,10 @@ public class StudentController {
     private FinishWorkService finishHomeWorkService;
     @Autowired
     private HomeWorkService homeWorkService;
+    @Autowired
+    private CourseService courseService;
+    @Autowired
+    private LevelService levelService;
     @PostMapping(value = "/editStudent")
     public Result<Student> insert(@RequestBody Student student) {
          studentService.saveOrUpdate(student);
@@ -38,4 +42,12 @@ public class StudentController {
     public HomeWork acceptHomeWork(@PathVariable(name = "id") Long id) {
         return homeWorkService.getHomeWork(id);
     }
+
+    @PostMapping("/viewCourse/{id}")
+    public List<Course> viewCourse(@PathVariable(name = "id") Long id) {
+        QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq();
+        courseService.list(queryWrapper);
+    }
+
 }
