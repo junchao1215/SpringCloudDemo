@@ -35,6 +35,10 @@ oss:
   AccessKey_Secret: HDclQ5pE9tcdxeF2BqaaHPWrksk65J
   endpoint: oss-cn-beijing.aliyuncs.com
   bucket: school-homework
+Iot:
+  accessKey: idx6L96673l
+  accessSecret: 66520fd9b3472e0f5518a7541d50ef57
+  RegionId: cn-shanghai
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,5 +1,7 @@
 package com.client.service;
 
-public interface OrganizationService {
+import entity.Organ;
 
+public interface  OrganizationService {
+    void edit(Organ organ);
 }

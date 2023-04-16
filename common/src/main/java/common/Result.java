@@ -81,6 +81,12 @@ public class Result<T> implements Serializable {
         result.message(resultCode.getMessage());
         return result;
     }
+    public static<T> Result<T> fail(int code,String message){
+        Result<T> result = new Result<T>(false,code,
+                message);
+
+        return result;
+    }
     /**
      * 设置是否成功
      * @param success

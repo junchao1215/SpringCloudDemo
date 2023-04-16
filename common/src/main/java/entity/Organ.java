@@ -10,4 +10,7 @@ public class Organ {
     private Long id;
     private String organDesc;
     private String parentId;
+    private String type;
+    private String remark;
+    private String regeditUserId;
 }

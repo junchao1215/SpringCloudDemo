@@ -1,6 +1,5 @@
 package com.server.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.server.service.*;
 import common.Result;

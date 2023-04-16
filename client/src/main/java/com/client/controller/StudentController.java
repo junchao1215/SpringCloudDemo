@@ -3,7 +3,9 @@ package com.client.controller;
 import com.client.log.OperatorLog;
 import com.client.service.StudentService;
 import common.Result;
+import common.ResultCode;
 import entity.*;
+import global.ExceptionDefine;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +23,14 @@ public class StudentController {
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改学生信息", module="学生")
     public Result<Student> edit(@RequestBody Student student){
-         studentService.edit(student);
-         return Result.ok();
+        try{
+            studentService.edit(student);
+            return Result.ok();
+        }
+        catch (Exception e){
+            throw new ExceptionDefine(ResultCode.COMMON_FAIL);
+        }
+
     }
 
 

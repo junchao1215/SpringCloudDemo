@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -30,7 +32,7 @@ public class LevelServiceImpl extends ServiceImpl<LevelMapper, Level> implements
     @Override
     @Transactional
     public void saveLevel(Level level) {
-        if(level.getId() == 0){
+        if(level.getId() == null){
             levelMapper.insert(level);
         }
         else{
@@ -40,12 +42,14 @@ public class LevelServiceImpl extends ServiceImpl<LevelMapper, Level> implements
         QueryWrapper<TeacherLevel> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("level",level.getId());
         teacherLevelMapper.delete(queryWrapper);
+        if(level.getTeachers()!=null && !level.getTeachers().isEmpty()){
+            level.getTeachers().forEach(teacher -> {
+                TeacherLevel teacherLevel = TeacherLevel.builder()
+                        .teacher(teacher.getId())
+                        .level(level.getId()).build();
+                teacherLevelMapper.insert(teacherLevel);
+            });
+        }
 
-        level.getTeachers().forEach(teacher -> {
-            TeacherLevel teacherLevel = TeacherLevel.builder()
-                    .teacher(teacher.getId())
-                    .level(level.getId()).build();
-            teacherLevelMapper.insert(teacherLevel);
-        });
     }
 }

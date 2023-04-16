@@ -17,6 +17,8 @@ public class Level {
     private String classLevel;
     //描述
     private String remark;
+    //学校
+    private String organId;
     @TableField(exist = false)
     private List<Teacher> teachers;
     @TableField(exist = false)

@@ -96,5 +96,10 @@ public class CRUDFeignServiceFallback implements CRUDFeignClientService {
         return null;
     }
 
+    @Override
+    public void editOrgan(Organ organ) {
+
+    }
+
 
 }

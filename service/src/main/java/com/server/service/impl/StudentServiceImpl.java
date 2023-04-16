@@ -24,7 +24,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     @Override
     @Transactional
     public void saveStudent(Student student) {
-        if(student.getId() == 0){
+        if(student.getId() == null){
             studentMapper.insert(student);
         }
         else{
@@ -34,12 +34,14 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
         QueryWrapper<StudentLevel> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("student",student.getId());
         studentLevelMapper.delete(queryWrapper);
+        if(student.getLevels()!=null && !student.getLevels().isEmpty()){
+            student.getLevels().forEach(level -> {
+                StudentLevel studentLevel = StudentLevel.builder()
+                        .student(student.getStudentNo())
+                        .level(level.getId()).build();
+                studentLevelMapper.insert(studentLevel);
+            });
+        }
 
-        student.getLevels().forEach(level -> {
-            StudentLevel studentLevel = StudentLevel.builder()
-                    .student(student.getStudentNo())
-                    .level(level.getId()).build();
-            studentLevelMapper.insert(studentLevel);
-        });
     }
 }

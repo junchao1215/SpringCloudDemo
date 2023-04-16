@@ -32,6 +32,14 @@ spring:
           uri: lb://nacos-client
           predicates:
             - Path=/userApi/login
+        - id: organ
+          uri: lb://nacos-client
+          predicates:
+            - Path=/organApi/**
+        - id: Iot
+          uri: lb://nacos-client
+          predicates:
+            - Path=/iotApi/**
 #          filters:
 #            - AddRequestHeader=X-Request-Foo, Bar
 #            - name: RequestRateLimiter

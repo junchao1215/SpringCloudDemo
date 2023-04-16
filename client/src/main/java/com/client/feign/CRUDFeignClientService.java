@@ -58,4 +58,8 @@ public interface CRUDFeignClientService {
 
     @PostMapping("/viewCourse/{id}")
     List<Course> viewCourse(@PathVariable("id") Long id);
+
+
+    @PostMapping("/editOrgan")
+    void editOrgan(@RequestBody Organ organ);
 }

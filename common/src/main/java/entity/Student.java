@@ -23,7 +23,6 @@ public class Student implements Serializable {
      * 业务唯一主键
      */
     private String studentNo;
-    private Long level;
 
     /**
      * 性别

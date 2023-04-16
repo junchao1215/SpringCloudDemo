@@ -28,6 +28,8 @@ public class Teacher {
      * 英文  数学  政治  书法
      */
     private String classType;
+    //学校
+    private String organId;
     //
     @TableField(exist = false)
     private List<Level> levels;
