@@ -12,7 +12,6 @@ import java.util.List;
 @Setter
 @Getter
 public class Student implements Serializable {
-    @TableId(type=IdType.ASSIGN_ID)
     private Long id;
     /**
      * 学生姓名

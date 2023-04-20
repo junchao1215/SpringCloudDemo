@@ -14,25 +14,25 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>8</java.version>
-        <shardingsphere.version>5.3.0</shardingsphere.version>
+        <shardingsphere.version>4.0.1</shardingsphere.version>
     </properties>
     <repositories>
 
-        <repository>
-            <id>aliyunmaven</id>
-            <name>aliyun maven</name>
-            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>aliyunmavensnapshot</id>
-            <name>aliyun maven snapshot</name>
-            <url>https://maven.aliyun.com/nexus/content/repositories/snapshots</url>
-        </repository>
+<!--        <repository>-->
+<!--            <id>aliyunmaven</id>-->
+<!--            <name>aliyun maven</name>-->
+<!--            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>-->
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>aliyunmavensnapshot</id>-->
+<!--            <name>aliyun maven snapshot</name>-->
+<!--            <url>https://maven.aliyun.com/nexus/content/repositories/snapshots</url>-->
+<!--        </repository>-->
     </repositories>
     <dependencies>
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
-            <artifactId>shardingsphere-jdbc-core</artifactId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
             <version>${shardingsphere.version}</version>
         </dependency>
 

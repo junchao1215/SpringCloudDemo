@@ -11,5 +11,6 @@ import java.util.List;
 @Mapper
 public interface LevelMapper extends BaseMapper<Level> {
     List<Level> getLevelByTeacherNo(@Param("teacherno") String teacherno);
+    List<Level> getLevelByStudentNo(@Param("studentno") String studentno);
 
 }

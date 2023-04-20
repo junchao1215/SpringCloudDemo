@@ -13,7 +13,9 @@
         select * from level where teacher_no = #{teacherno}
     </select>
     <select id="getLevelByStudentNo" resultMap="baseResult">
-        select * from level where teacher_no = #{teacherno}
+        select * from student_level sl left join level l
+        on sl.level = l.id
+        where sl.student = #{studentno}
     </select>
 
 </mapper>

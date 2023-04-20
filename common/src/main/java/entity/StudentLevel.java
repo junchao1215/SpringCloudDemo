@@ -10,7 +10,6 @@ import lombok.Data;
 @TableName("student_level")
 @Builder
 public class StudentLevel {
-    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     private Long level;
     private String student;

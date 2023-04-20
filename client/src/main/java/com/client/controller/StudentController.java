@@ -33,7 +33,7 @@ public class StudentController {
 
     @GetMapping("/getById/{id}")
     @OperatorLog(operate="根据ID获取学生信息", module="学生")
-    public Result<Student> getById(@PathVariable Long id){
+    public Result<Student> getById(@PathVariable("id") Long id){
         Student student = new Student();
         student.setId(id);
         student =  studentService.getById(student);
