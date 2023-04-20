@@ -1,8 +1,13 @@
 package com.client.feign;
 
+import entity.Course;
+import entity.FinishHomeWork;
+import entity.HomeWork;
 import entity.Student;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @FeignClient(value = "nacos-server",path = "/student",contextId = "student")
 public interface StudentFeignClientService {
@@ -13,8 +18,12 @@ public interface StudentFeignClientService {
     @GetMapping("/getStudentById/{id}")
     Student getStudentById(@PathVariable("id") Long id);
     @GetMapping("/findAllStudent")
-    void findAllStudent(@RequestParam("student") Student student);
+    List<Student> findAllStudent(@RequestParam("student") Student student);
 
-
-
+    @PostMapping("/editFinishHomeWork")
+    void editFinishHomeWork(@RequestBody FinishHomeWork work);
+    @PostMapping("/acceptHomeWork/{id}")
+    HomeWork acceptHomeWork(@PathVariable("id") Long id);
+    @PostMapping("/viewCourse/{id}")
+    List<Course> viewCourse(@PathVariable("id") Long id);
 }

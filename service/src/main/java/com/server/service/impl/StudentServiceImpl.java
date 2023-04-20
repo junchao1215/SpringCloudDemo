@@ -32,7 +32,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
         }
 
         QueryWrapper<StudentLevel> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("student",student.getId());
+        queryWrapper.eq("student",student.getStudentNo());
         studentLevelMapper.delete(queryWrapper);
         if(student.getLevels()!=null && !student.getLevels().isEmpty()){
             student.getLevels().forEach(level -> {

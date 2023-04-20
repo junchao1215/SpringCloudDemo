@@ -23,13 +23,10 @@ public class StudentController {
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改学生信息", module="学生")
     public Result<Student> edit(@RequestBody Student student){
-        try{
+
             studentService.edit(student);
             return Result.ok();
-        }
-        catch (Exception e){
-            throw new ExceptionDefine(ResultCode.COMMON_FAIL);
-        }
+
 
     }
 

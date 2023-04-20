@@ -1,14 +1,16 @@
 package common;
 
+//import org.springframework.http.HttpStatus;
+
 import org.springframework.http.HttpStatus;
 
-public enum ResultCode {
+public enum ResultCode{
     /* 成功 */
     SUCCESS(200, "成功"),
 
     /* 默认失败 */
     COMMON_FAIL(999, "失败"),
-
+    FEIGN_ERROR(1000, "调用feign异常"),
     /* 参数错误：1000～1999 */
     PARAM_NOT_VALID(1001, "参数无效"),
     PARAM_IS_BLANK(1002, "参数为空"),

@@ -1,7 +1,5 @@
 package com.client.feign;
 
-import com.client.auth.FeignInterceptorConfig;
-import com.client.feign.Fallback.FeignServiceFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

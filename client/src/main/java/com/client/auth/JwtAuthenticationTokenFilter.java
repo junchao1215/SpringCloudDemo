@@ -1,5 +1,7 @@
 package com.client.auth;
 
+import common.ResultCode;
+import global.ExceptionDefine;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,7 +44,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         String redisKey = "login:" + userid;
         LoginUser loginUser = redisCache.getCacheObject(redisKey);
         if(Objects.isNull(loginUser)){
-            throw new RuntimeException("用户未登录");
+            throw new ExceptionDefine(ResultCode.USER_NOT_LOGIN);
         }
         //存入SecurityContextHolder
         //TODO 获取权限信息封装到Authentication中

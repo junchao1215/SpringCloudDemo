@@ -14,7 +14,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/Iot/pom.xml" />
+        <option value="$PROJECT_DIR$/flowable/pom.xml" />
       </set>
     </option>
   </component>

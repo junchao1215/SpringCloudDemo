@@ -1,9 +1,6 @@
 package util;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -103,6 +100,53 @@ public class JwtUtil {
                 .setSigningKey(secretKey)
                 .parseClaimsJws(jwt)
                 .getBody();
+    }
+    public static boolean isExpiration(String token, String encryKey) {
+        try {
+            return getClaimsBody(token, encryKey)
+                    .getExpiration()
+                    .before(new Date());
+        } catch (ExpiredJwtException ex) {
+            return true;
+        }
+    }
+    /**
+     * 获取payload body信息
+     *
+     * @param token
+     * @param encryKey
+     * @return
+     */
+    public static Claims getClaimsBody(String token, String encryKey) {
+        return getJws(token, encryKey).getBody();
+    }
+    /**
+     * 获取token中的claims信息
+     *
+     * @param token
+     * @param encryKey
+     * @return
+     */
+    private static Jws<Claims> getJws(String token, String encryKey) {
+        return Jwts.parser()
+                .setSigningKey(encryKey)
+                .parseClaimsJws(token);
+    }
+    public static String createRefreshToken(String subject) {
+        SecretKey scret = generalKey();
+        if(JwtUtil.isExpiration(subject,JWT_KEY)){
+            Date nowDate = new Date();
+            Date refreshAt=new Date(System.currentTimeMillis()+JWT_TTL);
+            return Jwts.builder()
+                    .setSubject(subject)
+                    .setIssuedAt(nowDate)
+                    .setExpiration(refreshAt)
+                    .signWith(SignatureAlgorithm.HS512, scret)
+                    .compact();
+        }
+        return "";
+
+
     }
 
 }

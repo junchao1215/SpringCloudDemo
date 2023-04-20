@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/crud")
+@RequestMapping(path = "/student")
 public class StudentController {
     @Autowired
     private StudentService studentService;

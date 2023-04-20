@@ -50,3 +50,11 @@ mybatis-plus:
 #      group: SEATA_GROUP
 #      cluster: default
 
+
+#垂直分库水平分表
+sharding:
+  jdbc:
+    config:
+      sharding:
+        props:
+          sql.show: true

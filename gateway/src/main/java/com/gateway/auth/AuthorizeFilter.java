@@ -1,6 +1,8 @@
 package com.gateway.auth;
 
 import com.alibaba.cloud.commons.lang.StringUtils;
+import common.ResultCode;
+import global.ExceptionDefine;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -11,6 +13,7 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+import util.JwtUtil;
 
 /**
  * 鉴权过滤器 验证token
@@ -47,10 +50,8 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             JwtUtil.parseJWT(token);
         } catch (Exception e) {
             e.printStackTrace();
-            //10. 解析jwt令牌出错, 说明令牌过期或者伪造等不合法情况出现
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            //11. 返回
-            return response.setComplete();
+            throw new ExceptionDefine(ResultCode.UNAUTHORIZED);
+
         }
         //12. 放行
         return chain.filter(exchange);
