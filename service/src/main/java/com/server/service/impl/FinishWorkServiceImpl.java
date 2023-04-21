@@ -1,6 +1,5 @@
 package com.server.service.impl;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.server.mapper.AttachMapper;
 import com.server.mapper.FinishWorkMapper;

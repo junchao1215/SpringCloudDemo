@@ -12,6 +12,7 @@
         <module name="oauth2" />
         <module name="service" />
         <module name="gateway" />
+        <module name="domain" />
       </profile>
     </annotationProcessing>
   </component>

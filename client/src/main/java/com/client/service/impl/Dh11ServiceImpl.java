@@ -1,12 +1,8 @@
 package com.client.service.impl;
 
-import com.aliyuncs.iot.model.v20180120.RRpcRequest;
-import com.aliyuncs.iot.model.v20180120.RRpcResponse;
 import com.client.service.Dh11Service;
 import entity.Dh11;
 import org.springframework.stereotype.Service;
-
-import java.util.Base64;
 
 @Service
 public class Dh11ServiceImpl implements Dh11Service {

@@ -1,13 +1,16 @@
 package com.client.controller;
 
+import base.Request;
+import com.client.dto.StudentRequest;
 import com.client.log.OperatorLog;
+import com.client.mapstruct.StudentMapper;
 import com.client.service.StudentService;
 import common.Result;
-import common.ResultCode;
-import entity.*;
-import global.ExceptionDefine;
+import entity.Course;
+import entity.FinishHomeWork;
+import entity.HomeWork;
+import entity.Student;
 import lombok.extern.slf4j.Slf4j;
-import mapstruct.StudentDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +25,12 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
     @Autowired
-    private StudentDtoMapper studentDtoMapper;
+    private StudentMapper studentDtoMapper;
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改学生信息", module="学生")
-    public Result<Student> edit(@RequestBody Student student){
-            Student stu = studentDtoMapper.dtoToStudent(student);
-            studentService.edit(stu);
+    public Result<Student> edit(@RequestBody Request<StudentRequest> studentRequest){
+            Student student = StudentMapper.MAPSTRUCT.ToStudent(studentRequest);
+            studentService.edit(student);
             return Result.ok();
 
 
