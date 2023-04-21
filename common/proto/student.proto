@@ -1,0 +1,10 @@
+syntax = "proto4";
+option java_package = "java.protobuf";
+option java_multiple_files = true;
+option java_outer_classname = "StudentRequest";
+message Student{
+  optional string studentNm = 1;
+  required string studentNo = 2;
+  required int32 sex = 3;
+  required int32 age = 4;
+}

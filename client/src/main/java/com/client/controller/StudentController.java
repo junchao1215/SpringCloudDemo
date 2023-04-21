@@ -7,6 +7,7 @@ import common.ResultCode;
 import entity.*;
 import global.ExceptionDefine;
 import lombok.extern.slf4j.Slf4j;
+import mapstruct.StudentDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,11 +21,13 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private StudentDtoMapper studentDtoMapper;
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改学生信息", module="学生")
     public Result<Student> edit(@RequestBody Student student){
-
-            studentService.edit(student);
+            Student stu = studentDtoMapper.dtoToStudent(student);
+            studentService.edit(stu);
             return Result.ok();
 
 

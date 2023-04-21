@@ -15,6 +15,9 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <os.detected.classifier>windows-x86_64</os.detected.classifier>
+        <grpc.version>1.15.0</grpc.version>
+        <protobuf.version>3.12.2</protobuf.version>
     </properties>
 
     <dependencies>
@@ -101,5 +104,56 @@
             <version>3.5.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+
+
+
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
     </dependencies>
+<!--    <build>-->
+
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.xolstice.maven.plugins</groupId>-->
+<!--                <artifactId>protobuf-maven-plugin</artifactId>-->
+<!--                <version>0.5.1</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;本地protoc编译命令位置&ndash;&gt;-->
+<!--                    <protocExecutable>/usr/local/bin/protoc3</protocExecutable>-->
+<!--                    &lt;!&ndash;proto文件所在目录&ndash;&gt;-->
+<!--                    <protoSourceRoot>proto</protoSourceRoot>-->
+<!--                    &lt;!&ndash;产出java文件的目标目录&ndash;&gt;-->
+<!--                    <outputDirectory>src/main/java/protobuf</outputDirectory>-->
+<!--                    &lt;!&ndash;是否清空上面配置目录outputDirectory&ndash;&gt;-->
+<!--                    <clearOutputDirectory>false</clearOutputDirectory>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>process-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>compile</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+
+<!--        </plugins>-->
+<!--    </build>-->
+
 </project>
