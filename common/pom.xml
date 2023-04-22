@@ -116,35 +116,35 @@
             <version>${protobuf.version}</version>
         </dependency>
     </dependencies>
-<!--    <build>-->
+    <build>
 
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.xolstice.maven.plugins</groupId>-->
-<!--                <artifactId>protobuf-maven-plugin</artifactId>-->
-<!--                <version>0.5.1</version>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash;本地protoc编译命令位置&ndash;&gt;-->
-<!--                    <protocExecutable>/usr/local/bin/protoc3</protocExecutable>-->
-<!--                    &lt;!&ndash;proto文件所在目录&ndash;&gt;-->
-<!--                    <protoSourceRoot>proto</protoSourceRoot>-->
-<!--                    &lt;!&ndash;产出java文件的目标目录&ndash;&gt;-->
-<!--                    <outputDirectory>src/main/java/protobuf</outputDirectory>-->
-<!--                    &lt;!&ndash;是否清空上面配置目录outputDirectory&ndash;&gt;-->
-<!--                    <clearOutputDirectory>false</clearOutputDirectory>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>process-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>compile</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+        <plugins>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.1</version>
+                <configuration>
+                    <!--本地protoc编译命令位置-->
+                    <protocExecutable>protoc</protocExecutable>
+                    <!--proto文件所在目录-->
+                    <protoSourceRoot>proto</protoSourceRoot>
+                    <!--产出java文件的目标目录-->
+                    <outputDirectory>src/main/</outputDirectory>
+                    <!--是否清空上面配置目录outputDirectory-->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
 
-<!--        </plugins>-->
-<!--    </build>-->
+        </plugins>
+    </build>
 
 </project>
