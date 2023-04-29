@@ -20,9 +20,8 @@ public class TeacherController {
     private CourseService courseService;
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改教师信息", module="教师")
-    public Result edit(@RequestBody Teacher teacher) {
-        teacherService.edit(teacher);
-        return Result.ok();
+    public Result<Teacher> edit(@RequestBody Teacher teacher) {
+        return teacherService.edit(teacher);
     }
     @PostMapping("/editHomeWork")
     @OperatorLog(operate="保存/修改作业", module="教师")

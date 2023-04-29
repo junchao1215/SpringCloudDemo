@@ -1,5 +1,7 @@
 package com.client.feign.Fallback;
 
+import common.Result;
+import common.ResultCode;
 import dto.StudentRequest;
 import com.client.feign.StudentFeignClientService;
 import entity.Course;
@@ -15,17 +17,17 @@ public class StudentFeignServiceFallback implements StudentFeignClientService {
 
 
     @Override
-    public Student editStudent(StudentRequest student) {
+    public Result<Student> editStudent(StudentRequest student) {
+        return Result.fail(ResultCode.FEIGN_ERROR);
+    }
+
+    @Override
+    public Result<Student> getStudentById(Long id) {
         return null;
     }
 
     @Override
-    public Student getStudentById(Long id) {
-        return null;
-    }
-
-    @Override
-    public List<Student> findAllStudent(Student student) {
+    public Result<List<Student>> findAllStudent(Student student) {
         return null;
     }
 

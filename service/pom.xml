@@ -15,6 +15,9 @@
     <properties>
         <java.version>8</java.version>
         <shardingsphere.version>4.0.1</shardingsphere.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
     </properties>
     <repositories>
 

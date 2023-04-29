@@ -10,7 +10,7 @@ public enum ResultCode{
 
     /* 默认失败 */
     COMMON_FAIL(999, "失败"),
-    FEIGN_ERROR(1000, "调用feign异常"),
+    FEIGN_ERROR(1000, "调用feign异常,网络忙或宕机了！！！"),
     /* 参数错误：1000～1999 */
     PARAM_NOT_VALID(1001, "参数无效"),
     PARAM_IS_BLANK(1002, "参数为空"),

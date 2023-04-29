@@ -1,5 +1,6 @@
 package com.client.service.impl;
 
+import common.Result;
 import dto.StudentRequest;
 import com.client.feign.StudentFeignClientService;
 import com.client.service.StudentService;
@@ -12,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
-    @Autowired
-    StudentFeignClientService studentFeignClientService;
+//    @Autowired
+//    StudentFeignClientService studentFeignClientService;
 
     @Autowired
     private UserService userService;
@@ -28,36 +29,38 @@ public class StudentServiceImpl implements StudentService {
                 userService.saveUser(user);
             }
 
-            studentFeignClientService.editStudent(stu);
+//            studentFeignClientService.editStudent(stu);
 
 
     }
 
     @Override
     public Student getById(Student student) {
-
-        return studentFeignClientService.getStudentById(student.getId());
+//        Result<Student> result= studentFeignClientService.getStudentById(student.getId());
+//        return result.getData();
+        return null;
     }
 
     @Override
     public List<Student> findAll(Student student) {
-        studentFeignClientService.findAllStudent(student);
+//        studentFeignClientService.findAllStudent(student);
         return null;
     }
 
     @Override
     public void editHomeWork(FinishHomeWork work) {
-        studentFeignClientService.editFinishHomeWork(work);
+//        studentFeignClientService.editFinishHomeWork(work);
     }
 
     @Override
     public void publishHomeWork(FinishHomeWork work) {
-        studentFeignClientService.editFinishHomeWork(work);
+//        studentFeignClientService.editFinishHomeWork(work);
     }
 
     @Override
     public HomeWork acceptHomeWork(Long id) {
-        return studentFeignClientService.acceptHomeWork(id);
+//        return studentFeignClientService.acceptHomeWork(id);
+        return null;
     }
 
     @Override
@@ -67,6 +70,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Course> viewCourse(Long id) {
-        return studentFeignClientService.viewCourse(id);
+//        return studentFeignClientService.viewCourse(id);
+        return null;
     }
 }

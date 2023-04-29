@@ -76,9 +76,9 @@ public class Result<T> implements Serializable {
      */
     public static<T> Result<T> fail(ResultCode resultCode){
         Result<T> result = new Result<T>();
-        result.success(false);
-        result.code(resultCode.getCode());
-        result.message(resultCode.getMessage());
+        result.setSuccess(false);
+        result.setCode(resultCode.getCode());
+        result.setMessage(resultCode.getMessage());
         return result;
     }
     public static<T> Result<T> fail(int code,String message){

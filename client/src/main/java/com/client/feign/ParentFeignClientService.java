@@ -1,5 +1,6 @@
 package com.client.feign;
 
+import com.client.feign.Fallback.ParentFeignServiceFallback;
 import common.Result;
 import entity.Parent;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -7,8 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
-@FeignClient(value = "nacos-server",path = "/parent",contextId = "parent")
+@FeignClient(value = "nacos-server",path = "/parent",contextId = "parent",fallback = ParentFeignServiceFallback.class)
 public interface ParentFeignClientService {
 
 

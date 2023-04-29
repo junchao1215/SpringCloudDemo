@@ -8,11 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ParentFeignServiceFallback implements ParentFeignClientService {
 
-
-
-
-
-
     @Override
     public Result<Parent> editParent(Parent parent) {
         return null;

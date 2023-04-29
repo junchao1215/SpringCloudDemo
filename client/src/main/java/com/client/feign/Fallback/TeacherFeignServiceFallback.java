@@ -1,6 +1,8 @@
 package com.client.feign.Fallback;
 
 import com.client.feign.TeacherFeignClientService;
+import common.Result;
+import common.ResultCode;
 import entity.FinishHomeWork;
 import entity.HomeWork;
 import entity.Level;
@@ -14,8 +16,9 @@ public class TeacherFeignServiceFallback implements TeacherFeignClientService {
 
 
     @Override
-    public void editTeacher(Teacher teacher) {
+    public Result<Teacher> editTeacher(Teacher teacher) {
 
+        return Result.fail(ResultCode.FEIGN_ERROR);
     }
 
     @Override
@@ -40,6 +43,7 @@ public class TeacherFeignServiceFallback implements TeacherFeignClientService {
 
     @Override
     public void editLevel(Level level) {
+        System.out.println("--------");
 
     }
 

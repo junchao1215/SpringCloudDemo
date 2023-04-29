@@ -3,6 +3,7 @@ package com.client.service.impl;
 import com.client.feign.TeacherFeignClientService;
 import com.client.service.TeacherService;
 import com.client.service.UserService;
+import common.Result;
 import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,13 @@ public class TeacherServiceImpl implements TeacherService {
     @Autowired
     private UserService userService;
     @Override
-    public void edit(Teacher teacher) {
+    public Result<Teacher> edit(Teacher teacher) {
         User user =User.builder()
                 .userName(teacher.getTeacherNo())
                 .nickName(teacher.getTeacherNm())
                 .build();
-        userService.saveUser(user);
-        teacherFeignClientService.editTeacher(teacher);
+//        userService.saveUser(user);
+        return teacherFeignClientService.editTeacher(teacher);
     }
 
     @Override

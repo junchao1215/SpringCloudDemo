@@ -8,6 +8,11 @@ spring:
   application:
     name: nacos-client
   cloud:
+    sentinel:
+      web-context-unify: false
+      transport:
+        port: 7071
+        dashboard: localhost:7071
     nacos:
       discovery:
         server-addr: http://127.0.0.1:8848
@@ -25,11 +30,9 @@ spring:
     port: 6379
     connect-timeout: 5000
     password:
-#feign:
-#  sentinel:
-#    enabled: true
-#  circuitbreaker:
-#    enabled: true
+feign:
+  sentinel:
+    enabled: true
 oss:
   AccessKey_ID: LTAI5tDcZ6cuhyeNmDvhdRMB
   AccessKey_Secret: HDclQ5pE9tcdxeF2BqaaHPWrksk65J

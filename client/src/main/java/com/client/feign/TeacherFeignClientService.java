@@ -1,5 +1,7 @@
 package com.client.feign;
 
+import com.client.feign.Fallback.TeacherFeignServiceFallback;
+import common.Result;
 import entity.FinishHomeWork;
 import entity.HomeWork;
 import entity.Level;
@@ -9,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(value = "nacos-server",path = "/teacher",contextId = "teacher")
+@FeignClient(value = "nacos-server",path = "/teacher",contextId = "teacher",fallback = TeacherFeignServiceFallback.class)
 public interface TeacherFeignClientService {
     @PostMapping("/editTeacher")
-    void editTeacher(@RequestBody Teacher teacher);
+    Result<Teacher> editTeacher(@RequestBody Teacher teacher);
     @GetMapping("/getTeacherObject/{id}")
     Teacher getTeacherById(@PathVariable("id") Long id);
     @GetMapping("/findAllTeacher")
