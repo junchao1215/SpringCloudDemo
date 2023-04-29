@@ -1,5 +1,6 @@
 package com.client.controller;
 
+import com.client.auth.LoginUser;
 import entity.User;
 import com.client.log.OperatorLog;
 import com.client.service.LoginService;
@@ -18,11 +19,16 @@ public class UserController {
     private LoginService loginService;
     @PostMapping("/login")
     @OperatorLog(operate="用户登陆", module="用户管理")
-    public Result login(@RequestBody User user){
+    public Result<LoginUser> login(@RequestBody User user){
         return loginService.login(user);
     }
 
 
+    @PostMapping("/wxlogin")
+    @OperatorLog(operate="微信用户登陆", module="用户管理")
+    public Result wxlogin(@RequestBody User user){
+        return loginService.login(user);
+    }
 
 
 }

@@ -3,6 +3,7 @@ package com.server.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.server.service.*;
 import common.Result;
+import dto.StudentRequest;
 import entity.Course;
 import entity.FinishHomeWork;
 import entity.HomeWork;
@@ -26,7 +27,7 @@ public class StudentController {
     @Autowired
     private LevelService levelService;
     @PostMapping(value = "/editStudent")
-    public Result<Student> insert(@RequestBody Student student) {
+    public Result<Student> insert(@RequestBody StudentRequest student) {
          studentService.saveStudent(student);
          return Result.ok();
     }

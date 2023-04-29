@@ -1,5 +1,6 @@
 package com.client.service.impl;
 
+import dto.StudentRequest;
 import com.client.feign.StudentFeignClientService;
 import com.client.service.StudentService;
 import com.client.service.UserService;
@@ -18,8 +19,7 @@ public class StudentServiceImpl implements StudentService {
     private UserService userService;
     @Transactional
     @Override
-    public void edit(Student stu) {
-
+    public void edit(StudentRequest stu) {
             if(stu.getId()==null){
                 User user =User.builder()
                         .userName(stu.getStudentNo())

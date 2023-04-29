@@ -6,5 +6,6 @@ import common.Result;
 
 public interface LoginService {
     Result<LoginUser> login(User user);
+    Result<LoginUser> wxlogin(User user);
     Result<LoginUser> logout();
 }

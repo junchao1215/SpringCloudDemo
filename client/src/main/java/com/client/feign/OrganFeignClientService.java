@@ -1,7 +1,6 @@
 package com.client.feign;
 
 import entity.Organ;
-import entity.Parent;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +10,6 @@ public interface OrganFeignClientService {
 
 
 
-    @PostMapping("/editOrgan")
+    @PostMapping(value="/editOrgan")
     void editOrgan(@RequestBody Organ organ);
 }

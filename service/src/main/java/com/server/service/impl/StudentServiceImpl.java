@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.server.mapper.StudentLevelMapper;
 import com.server.mapper.StudentMapper;
 import com.server.service.StudentService;
+import dto.StudentRequest;
 import entity.Student;
 import entity.StudentLevel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, StudentRequest> implements StudentService {
     @Autowired
     private StudentMapper studentMapper;
     @Autowired
@@ -23,8 +24,8 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
     @Override
     @Transactional
-    public void saveStudent(Student student) {
-        if(student.getId() == null){
+    public void saveStudent(StudentRequest student) {
+         if(student.getId() == null){
             studentMapper.insert(student);
         }
         else{

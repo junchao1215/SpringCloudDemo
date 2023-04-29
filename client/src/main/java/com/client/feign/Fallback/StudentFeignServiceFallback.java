@@ -1,5 +1,6 @@
 package com.client.feign.Fallback;
 
+import dto.StudentRequest;
 import com.client.feign.StudentFeignClientService;
 import entity.Course;
 import entity.FinishHomeWork;
@@ -14,7 +15,7 @@ public class StudentFeignServiceFallback implements StudentFeignClientService {
 
 
     @Override
-    public Student editStudent(Student student) {
+    public Student editStudent(StudentRequest student) {
         return null;
     }
 

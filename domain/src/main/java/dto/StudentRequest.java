@@ -1,16 +1,14 @@
-package com.client.dto;
+package dto;
 
 import entity.Level;
 import entity.Parent;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@Setter
-@Getter
+@Data
 public class StudentRequest implements Serializable {
     private Long id;
     /**to
@@ -31,10 +29,7 @@ public class StudentRequest implements Serializable {
      * 年龄
      */
     private int age;
-    /**
-     * 删除状态
-     */
-    private int stat;
+
     private Date updateDt;
     /**
      * 家长

@@ -1,9 +1,7 @@
 package com.client.controller;
 
-import base.Request;
-import com.client.dto.StudentRequest;
+import dto.StudentRequest;
 import com.client.log.OperatorLog;
-import com.client.mapstruct.StudentMapper;
 import com.client.service.StudentService;
 import common.Result;
 import entity.Course;
@@ -24,13 +22,11 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-    @Autowired
-    private StudentMapper studentDtoMapper;
+
     @PostMapping("/edit")
     @OperatorLog(operate="保存/修改学生信息", module="学生")
-    public Result<Student> edit(@RequestBody Request<StudentRequest> studentRequest){
-            Student student = StudentMapper.MAPSTRUCT.ToStudent(studentRequest);
-            studentService.edit(student);
+    public Result<Student> edit(@RequestBody StudentRequest studentRequest){
+            studentService.edit(studentRequest);
             return Result.ok();
 
 

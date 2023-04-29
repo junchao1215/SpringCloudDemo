@@ -1,5 +1,6 @@
 package com.client.feign;
 
+import dto.StudentRequest;
 import entity.Course;
 import entity.FinishHomeWork;
 import entity.HomeWork;
@@ -14,7 +15,7 @@ public interface StudentFeignClientService {
 
 
     @PostMapping("/editStudent")
-    Student editStudent(@RequestBody Student student);
+    Student editStudent(@RequestBody StudentRequest student);
     @GetMapping("/getStudentById/{id}")
     Student getStudentById(@PathVariable("id") Long id);
     @GetMapping("/findAllStudent")

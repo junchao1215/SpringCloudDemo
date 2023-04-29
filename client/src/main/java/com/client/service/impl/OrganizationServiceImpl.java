@@ -1,19 +1,18 @@
 package com.client.service.impl;
 
-import com.client.feign.OrganFeignClientService;
 import com.client.service.OrganizationService;
+import dubbo.api.OrganzationDubboApi;
 import entity.Organ;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
-    @Autowired
-    OrganFeignClientService organFeignClientService;
+    @DubboReference(check = false,timeout = 600000 , retries = 0)
+    OrganzationDubboApi organzationDubboApi;
     @Override
     public void edit(Organ organ) {
-
-        organFeignClientService.editOrgan(organ);
+        organzationDubboApi.edit(organ);
     }
 
 

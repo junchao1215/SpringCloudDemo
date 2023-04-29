@@ -1,9 +1,0 @@
-syntax = "proto3";
-option java_package = "java.protobuf";
-option java_outer_classname = "StudentRequest";
-message Student{
-   string studentNm = 1;
-   string studentNo = 2;
-   int32 sex = 3;
-   int32 age = 4;
-}

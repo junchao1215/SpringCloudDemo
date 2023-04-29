@@ -11,7 +11,7 @@ import java.util.Date;
  * 创建时间和更新时间自动更新
  */
 @Slf4j
-public class MyDateObjectHandler implements MetaObjectHandler {
+public class DateObjectHandler implements MetaObjectHandler {
 
     public void insertFill(MetaObject metaObject) {
 //        log.info("come to insert fill .........");

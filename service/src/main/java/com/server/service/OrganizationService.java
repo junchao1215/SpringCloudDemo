@@ -2,8 +2,9 @@ package com.server.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import dto.OrganRequest;
 import entity.Organ;
-import entity.Teacher;
 
 public interface OrganizationService extends IService<Organ> {
+    void saveOrganization(Organ organ);
 }

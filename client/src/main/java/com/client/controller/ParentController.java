@@ -23,18 +23,4 @@ public class ParentController {
         return Result.ok();
     }
 
-
-//    @Autowired
-//    FeignClientService feignClientService;
-    @GetMapping("/hello")
-//    @GlobalTransactional(rollbackFor = Throwable.class)
-    public String hello() throws Exception {
-        return "";
-
-//            feignClientService.insert();
-//            feignClientService.update();
-//        return feignClientService.hello();
-    }
-
-
 }

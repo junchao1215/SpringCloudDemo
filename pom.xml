@@ -15,6 +15,7 @@
         <module>gateway</module>
         <module>common</module>
         <module>domain</module>
+        <module>interface</module>
     </modules>
     <packaging>pom</packaging>
     <properties></properties>

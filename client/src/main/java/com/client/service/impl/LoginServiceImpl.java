@@ -32,14 +32,21 @@ public class LoginServiceImpl implements LoginService {
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
         String userId = loginUser.getUser().getId().toString();
         String jwt = jwtUtil.createJWT(userId);
+        loginUser.setToken(jwt);
         //authenticate存入redis
         redisCache.setCacheObject("login:"+userId,loginUser);
         //把token响应给前端
-        loginUser.setToken(jwt);
+
         return Result.ok(loginUser);
 
 
     }
+
+    @Override
+    public Result<LoginUser> wxlogin(User user) {
+        return null;
+    }
+
     @Override
     public Result<LoginUser> logout() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

@@ -1,11 +1,12 @@
 package com.client.service;
 
+import dto.StudentRequest;
 import entity.*;
 
 import java.util.List;
 
 public interface StudentService {
-    void edit(Student stu);
+    void edit(StudentRequest stu);
     Student getById(Student student);
     List<Student> findAll(Student student);
 

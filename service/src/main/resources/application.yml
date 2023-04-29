@@ -1,6 +1,15 @@
 server:
   port: 7001
 spring:
+  rules:
+    readwrite-splitting:
+      data-sources:
+        ds2:
+          write-data-source-name: ds0
+          read-data-source-names: ds1
+      load-balancers:
+        round-robin: # 负载均衡算法
+          type: ROUND_ROBIN # 轮询
   shardingsphere:
     datasource:
       names: ds0,ds1
@@ -13,7 +22,7 @@ spring:
       ds1:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/school?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://127.0.0.1:3306/school_bak?useUnicode=true&characterEncoding=utf-8
         username: root
         password: 123456
     masterslave:
@@ -63,7 +72,13 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:/mapper/**/*.xml
-
+dubbo:
+  scan:
+    base-packages: dubbo.api
+  protocol:
+    name: dubbo
+  registry:
+    address: nacos://127.0.0.1:8848
 #seata:
   #  enabled: true
   #  enable-auto-data-source-proxy: false
